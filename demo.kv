@@ -1,0 +1,116 @@
+
+
+
+
+
+
+                        #btn.text = field.text if field.text != "press" else "pressed by self"
+
+
+
+Screen:
+    bg: app.theme_cls.opposite_bg_darkest
+
+    Image:
+        id: image
+        pos_hint: {"center_y":0.54}
+        size: root.width, root.height
+        source: 'anime mashup.jpg'
+        opacity: 0.1
+
+
+    MDRectangleFlatIconButton:
+        id: btn
+        text: "Enter"
+        size_hint: 0.15,0.07
+        icon: "subdirectory-arrow-left"
+        pos_hint: {'center_y': 0.6,'center_x':0.6}
+        on_release: app.searcher()
+
+        #on_release:
+         #   app.call_sessions(),app.thread_session(),app.spinner()
+
+    MDRectangleFlatIconButton:
+        id: session_btn
+        text: "Begin"
+        size_hint: 0.15,0.07
+        icon: "contain-start"
+        pos_hint: {'center_y': 0.6,'center_x':0.6}
+        on_release:
+            app.call_sessions(),app.thread_session(),app.spinner()
+
+    MDRectangleFlatIconButton:
+        id: down_btn
+        text: "Download"
+        icon: "download"
+        pos_hint:{"center_x": 0.6,"center_y":0.4}
+        on_release: app.main_download_area(),app.downloading()
+
+
+    MDSpinner:
+        id: spinner
+        pos_hint: {"center_x":0.5,"center_y":0.5}
+        size_hint: 0.1, 0.1
+
+
+    MDTextField:
+        id: field
+        on_focus: if self.focus: app.callback()
+        icon_right: "cloud-search-outline"
+        icon_right_color: (0.62352941176,0.58039215686,1,1)
+
+        #required: True
+        hint_text: "Enter Anime Name:"
+        helper_text: "Use anime's official name e.g bongo stray dogs is Bungou Stray Dogs Wan"
+        helper_text_mode: "on_focus"
+        pos_hint:{'center_x': 0.5, 'center_y': 0.7}
+        size_hint_x:None
+
+        width:300
+
+
+    MDBottomAppBar:
+
+
+
+        MDToolbar:
+            id: toolbar
+            title: ""
+            icon: "format-color-fill"
+            type: "bottom"
+            mode: "end"
+            size_hint: 1,0.6
+            md_bg_color: app.theme_cls.primary_color
+            action_button_color: 0,1,0,1
+            on_action_button: app.theme()
+            left_action_items: [["menu", lambda x:x]]
+
+
+
+
+
+
+    MDFillRoundFlatIconButton:
+        icon: "folder"
+        size_hint_x: 0.24
+        text: "Enter File Directory"
+        pos_hint: {"center_x":0.14,"center_y":0.145}
+        on_press: app.file_manager()
+
+
+
+
+
+    MDProgressBar:
+        id: prog_bar
+        size_hint_x: 0.4
+        value: 0
+        pos_hint: {"center_x": 0.5, "center_y": 0.2}
+
+
+
+
+
+
+
+

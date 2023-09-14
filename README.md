@@ -1,5 +1,6 @@
 # Senpy
-App to Download Anime in Bulk
+Note: Code doesnt work anymore due to cloudflare bypass
+Uses webscraping and a gui module called kivy to provide users with the ability to download anime in bulk 
 Tutorial:
 One Initialization of Senpy your gonna see a Text field 
 In this field you'll need to enter an anime name Japanese or English name i think it'll work for both most of the time
